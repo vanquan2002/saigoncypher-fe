@@ -22,7 +22,9 @@ export default function ProductLatests() {
           </div>
         </div>
       ) : error ? (
-        <Error>{error}</Error>
+        <div className="mt-4">
+          <Error>{error}</Error>
+        </div>
       ) : (
         <>
           <div className="flex flex-col gap-12 md:gap-20 mt-10 md:mt-20">
