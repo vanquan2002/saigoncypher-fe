@@ -1,9 +1,9 @@
 export default function Information() {
   return (
     <div className="mt-20 md:mt-40">
-      <p className="text-darkPrimary text-2xl md:text-4xl font-semibold uppercase">
+      <h1 className="text-darkPrimary text-[7vw] md:text-5xl font-semibold uppercase">
         Tham gia bản tin
-      </p>
+      </h1>
       <form className="w-full md:w-[500px] flex flex-col gap-12 mt-5 md:mt-10">
         <div className="relative h-11 min-[10px] w-full">
           <input

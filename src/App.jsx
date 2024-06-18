@@ -23,6 +23,3 @@ function App() {
 }
 
 export default App;
-
-// npm start -- --host 0.0.0.0 --port 8000
-// bg-gradient-to-r from-red-100 via-red-200 to-yellow-100

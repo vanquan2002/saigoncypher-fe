@@ -18,12 +18,14 @@ export default function SearchLayout({ result }) {
   const submitHandle = (e) => {
     e.preventDefault();
     layoutResetSearchHandle();
-    if (keyword.trim()) {
-      navigate(`/products/search/${keyword}`);
-    } else {
-      navigate(`/products`);
-    }
-    setKeyword("");
+    setTimeout(() => {
+      if (keyword.trim()) {
+        navigate(`/products/search/${keyword}`);
+      } else {
+        navigate(`/products`);
+      }
+      setKeyword("");
+    }, 500);
   };
 
   useEffect(() => {
@@ -45,7 +47,7 @@ export default function SearchLayout({ result }) {
           result
             ? "translate-x-0 duration-500"
             : "translate-x-[500px] duration-500"
-        } w-[350px] md:w-[500px] h-screen bg-whitePrimary`}
+        } w-[300px] md:w-[500px] h-screen bg-whitePrimary`}
       >
         {/* Content */}
         <div className="flex flex-col gap-7 items-center p-10 md:p-16">
@@ -66,14 +68,14 @@ export default function SearchLayout({ result }) {
               <input
                 ref={inputRef}
                 onChange={(e) => setKeyword(e.target.value)}
-                className="w-full px-4 py-2 md:px-6 md:py-3 placeholder:text-[0.9rem] placeholder:text-darkPrimary outline-none border border-darkPrimary bg-whitePrimary"
+                className="w-full pl-4 py-2 md:pl-6 md:py-3 pr-10 md:pr-14 placeholder:text-[0.9rem] placeholder:text-darkPrimary outline-none border border-darkPrimary"
                 type="text"
                 placeholder="Tìm kiếm sản phẩm..."
                 value={keyword}
               />
               <RiSearchLine
                 onClick={submitHandle}
-                className="absolute top-1/2 right-5 text-xl md:text-2xl cursor-pointer transform -translate-y-1/2 text-darkPrimary"
+                className="absolute top-1/2 right-3 md:right-5 text-xl md:text-2xl cursor-pointer transform -translate-y-1/2 text-darkPrimary"
               />
             </div>
           </form>

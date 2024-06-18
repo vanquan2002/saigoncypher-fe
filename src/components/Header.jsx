@@ -36,17 +36,17 @@ export default function Header() {
         <RiSearchLine
           onClick={layoutSearchHandler}
           size="1.3rem"
-          className="cursor-pointer text-darkPrimary"
+          className="cursor-pointer text-darkPrimary hover:-rotate-12 duration-200"
         />
         <MdOutlineShoppingBag
           onClick={layoutCartHandler}
           size="1.3rem"
-          className="cursor-pointer text-darkPrimary"
+          className="cursor-pointer text-darkPrimary hover:-rotate-12 duration-200"
         />
         <HiMenuAlt3
           onClick={layoutMenuHandler}
           size="1.3rem"
-          className="cursor-pointer text-darkPrimary"
+          className="cursor-pointer text-darkPrimary hover:-rotate-12 duration-200"
         />
       </div>
     </div>

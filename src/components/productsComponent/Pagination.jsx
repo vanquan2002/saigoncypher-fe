@@ -12,7 +12,7 @@ const Pagination = ({ page, pages, keyword }) => {
 
   return (
     pages > 1 && (
-      <div className="flex justify-center items-center gap-1 mt-10 md:mt-20">
+      <div className="flex justify-center items-center gap-1 mt-10 md:mt-14">
         <p
           onClick={() => handlePageClick(Math.max(1, page - 1))}
           className={`${

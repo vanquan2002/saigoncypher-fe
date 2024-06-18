@@ -21,18 +21,18 @@ export default function Contents() {
 
   return (
     <>
-      <div className="sticky top-20 ml-10 mt-20 md:ml-20 md:mt-40">
+      <div className="sticky top-14 md:top-20 ml-5 mt-20 md:ml-20 md:mt-32">
         <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 backdrop-blur-sm rounded-full flex items-center justify-center">
           <AiOutlineDoubleLeft
             className="absolute text-darkPrimary hover:text-opacity-45 duration-200 cursor-pointer text-3xl md:text-4xl lg:text-5xl"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
           />
         </div>
       </div>
       <div className="px-5 pb-20 md:px-20 md:pb-40">
-        <p className="text-center md:text-left mt-3 md:mt-6 text-[40px] md:text-[6vw] lg:text-[7vw] uppercase font-bold">
-          Chi tiết sản phẩm
-        </p>
+        <h1 className="text-center md:text-left mt-6 md:mt-12 text-[8vw] md:text-[5vw] uppercase font-bold">
+          Tất cả sản phẩm
+        </h1>
 
         {loading ? (
           <div className="h-screen">

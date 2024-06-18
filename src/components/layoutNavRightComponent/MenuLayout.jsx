@@ -23,7 +23,7 @@ export default function MenuLayout({ result }) {
           result
             ? "translate-x-0 duration-500"
             : "translate-x-[500px] duration-500"
-        } w-[350px] md:w-[500px] h-screen bg-whitePrimary`}
+        } w-[300px] md:w-[500px] h-screen bg-whitePrimary`}
       >
         {/* Content */}
         <div className="flex flex-col gap-7 items-center p-10 md:p-16">

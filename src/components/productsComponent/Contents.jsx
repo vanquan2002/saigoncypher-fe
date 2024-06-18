@@ -6,6 +6,7 @@ import Error from "../Error";
 import { AiOutlineDoubleLeft } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router";
 import Pagination from "./Pagination";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 export default function Contents() {
   const { keyword } = useParams();
@@ -22,18 +23,18 @@ export default function Contents() {
 
   return (
     <>
-      <div className="sticky top-20 ml-10 mt-20 md:ml-20 md:mt-40">
+      <div className="sticky top-14 md:top-20 ml-5 mt-20 md:ml-20 md:mt-32">
         <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 backdrop-blur-sm rounded-full flex items-center justify-center">
           <AiOutlineDoubleLeft
             className="absolute text-darkPrimary hover:text-opacity-45 duration-200 cursor-pointer text-3xl md:text-4xl lg:text-5xl"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
           />
         </div>
       </div>
       <div className="px-5 pb-20 md:px-20 md:pb-40">
-        <p className="text-center md:text-left mt-3 md:mt-6 text-[40px] md:text-[6vw] lg:text-[7vw] uppercase font-bold">
+        <h1 className="text-center md:text-left mt-6 md:mt-12 text-[8vw] md:text-[5vw] uppercase font-bold">
           Tất cả sản phẩm
-        </p>
+        </h1>
 
         {loading ? (
           <div className="h-screen">
@@ -44,7 +45,7 @@ export default function Contents() {
         ) : error ? (
           <Error>{error}</Error>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 md:mt-20">
             {products.map((product, i) => (
               <div key={i}>
                 <img
@@ -53,13 +54,15 @@ export default function Contents() {
                   className="w-full cursor-pointer"
                   alt=""
                 />
-                <p
+                <h5
                   onClick={() => navigate(`/products/${product._id}/detail`)}
-                  className="cursor-pointer hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r from-red-300 via-red-300 to-yellow-300 duration-300 text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1"
+                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline"
                 >
                   {product.name}
-                </p>
-                <p className="text-sm text-darkPrimary">{product.price} VND</p>
+                </h5>
+                <span className="text-sm text-darkPrimary">
+                  {formatCurrency(product.price)}
+                </span>
               </div>
             ))}
           </div>
