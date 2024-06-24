@@ -26,7 +26,7 @@ export default function Contents() {
       <div className="sticky top-14 md:top-20 ml-5 mt-20 md:ml-20 md:mt-32">
         <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 backdrop-blur-sm rounded-full flex items-center justify-center">
           <AiOutlineDoubleLeft
-            className="absolute text-darkPrimary hover:text-opacity-45 duration-200 cursor-pointer text-3xl md:text-4xl lg:text-5xl"
+            className="absolute text-darkPrimary active:text-opacity-60 duration-200 cursor-pointer text-3xl md:text-4xl lg:text-5xl"
             onClick={() => navigate("/")}
           />
         </div>
@@ -45,7 +45,7 @@ export default function Contents() {
         ) : error ? (
           <Error>{error}</Error>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 md:mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 md:mt-20 lg:mt-28">
             {products.map((product, i) => (
               <div key={i}>
                 <img
@@ -56,7 +56,7 @@ export default function Contents() {
                 />
                 <h5
                   onClick={() => navigate(`/products/${product._id}/detail`)}
-                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline"
+                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline active:text-opacity-60"
                 >
                   {product.name}
                 </h5>

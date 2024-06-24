@@ -39,7 +39,7 @@ export default function ProductLatests() {
                 />
                 <h5
                   onClick={() => navigate(`/products/${product._id}/detail`)}
-                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline"
+                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline active:text-opacity-60"
                 >
                   {product.name}
                 </h5>
@@ -52,7 +52,7 @@ export default function ProductLatests() {
           <div className="flex justify-center w-full mt-8 md:mt-12">
             <p
               onClick={() => navigate("/products")}
-              className="text-xs md:text-base font-medium cursor-pointer text-darkPrimary text-opacity-70 hover:underline"
+              className="text-xs md:text-base font-medium cursor-pointer text-darkPrimary text-opacity-70 hover:underline active:text-opacity-60"
             >
               [ Xem tất cả sản phẩm ]
             </p>
