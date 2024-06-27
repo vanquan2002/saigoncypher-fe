@@ -2,7 +2,7 @@ export default function Information() {
   return (
     <div className="">
       <h4 className="uppercase">Tham gia bản tin</h4>
-      <form className="max-w-[350px] md:max-w-[400px] flex flex-col gap-12 mt-3">
+      <form className="w-[70vw] md:w-[40vw] lg:w-[30vw] flex flex-col gap-12 mt-3">
         <div className="relative h-11 min-[10px] w-full">
           <input
             id="email"

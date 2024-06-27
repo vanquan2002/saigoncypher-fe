@@ -21,9 +21,9 @@ export default function MenuLayout({ result }) {
         onClick={(e) => e.stopPropagation()}
         className={`${
           result
-            ? "translate-x-0 duration-500"
-            : "translate-x-[500px] duration-500"
-        } w-[300px] md:w-[500px] h-screen bg-whitePrimary`}
+            ? "translate-x-0 duration-300"
+            : "translate-x-[500px] duration-300"
+        } w-[80vw] md:w-[60vw] lg:w-[40vw] h-screen bg-whitePrimary`}
       >
         {/* Content */}
         <div className="flex flex-col gap-7 items-center p-10 md:p-16">

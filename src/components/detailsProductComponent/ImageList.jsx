@@ -60,7 +60,7 @@ const ImageList = ({ images }) => {
                 className="flex justify-center items-center active:opacity-75 duration-200"
                 onClick={() => wheelImgsWhenClickHandle(i)}
               >
-                <img src={img} className="w-9 md:w-12" alt="" />
+                <img src={img} className="w-10 md:w-[4vw]" alt="" />
               </button>
             </div>
           ))}

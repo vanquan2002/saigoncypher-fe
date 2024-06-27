@@ -1,5 +1,5 @@
 import { RiSearchLine } from "react-icons/ri";
-import { HiMenuAlt3 } from "react-icons/hi";
+import { HiOutlineUser } from "react-icons/hi";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import {
@@ -43,7 +43,7 @@ export default function Header() {
           size="1.3rem"
           className="cursor-pointer text-darkPrimary active:text-opacity-60"
         />
-        <HiMenuAlt3
+        <HiOutlineUser
           onClick={layoutMenuHandler}
           size="1.3rem"
           className="cursor-pointer text-darkPrimary active:text-opacity-60"

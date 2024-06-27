@@ -1,7 +1,7 @@
 import Information from "./Information";
 
 export default function Footer() {
-  const socialNetwork = ["facebook", "threads", "tiktok"];
+  const socialNetwork = ["facebook", "threads", "tiktok", "youtube"];
   const usefulLinks = [
     "Tài khoản của tôi",
     "Đổi, trả hàng và hoàn tiền",
@@ -12,9 +12,9 @@ export default function Footer() {
   ];
 
   return (
-    <div className="p-10 md:p-20 min-h-1">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-        <div className="flex flex-col gap-20">
+    <div className="p-5 py-10 md:p-20 min-h-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-28">
+        <div className="flex flex-col lg:items-start gap-16 md:gap-28">
           <div className="text-darkPrimary uppercase">
             <h4>Hotline</h4>
             <h1 className="mt-3 md:mt-5 text-4xl md:text-[3.5rem]">
@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <div className="">
               <span className="text-[10px] md:text-[11px]">Email: </span>
-              <span className="text-[10px] md:text-[11px] text-darkPrimary active:text-opacity-60 underline cursor-pointer">
+              <span className="text-[10px] md:text-[11px] text-darkPrimary active:text-opacity-60 hover:underline cursor-pointer">
                 SUPPORT@SAIGONCYPHER.COM
               </span>
             </div>
@@ -33,7 +33,7 @@ export default function Footer() {
           <Information />
         </div>
 
-        <div className="flex flex-col gap-20 lg:justify-between lg:items-end">
+        <div className="flex flex-col gap-16 md:gap-28 lg:justify-between lg:items-end">
           <div className="flex flex-col gap-1 lg:items-end">
             {usefulLinks.map((item, i) => (
               <span
@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             ))}
           </div>
-          <div className="flex flex-wrap gap-x-8 gap-y-2 md:gap-8">
+          <div className="flex gap-8">
             {socialNetwork.map((item, i) => (
               <span
                 key={i}
