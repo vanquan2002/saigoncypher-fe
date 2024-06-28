@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { formatCurrency } from "../../utils/formatCurrency";
 import InfoAddCartMdComponent from "./InfoAddCartMdComponent";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InfoAddCartSmComponent from "./InfoAddCartSmComponent";
+import { CART_ADD_RESET } from "../../redux/constants/CartConstants";
+import { setLayoutCartActions } from "../../redux/actions/LayoutNavRightActions";
 
 export default function Details({
   id,
@@ -14,7 +16,8 @@ export default function Details({
   const [lineCountElement, setLineCountElement] = useState(0);
   const descriptionRef = useRef(null);
   const cart = useSelector((state) => state.cart);
-  const { loading } = cart;
+  const { loading, success } = cart;
+  const dispatch = useDispatch();
 
   const formatDataWithBr = (content) => {
     return (
@@ -52,6 +55,16 @@ export default function Details({
   useEffect(() => {
     handleResize();
   }, []);
+
+  useEffect(() => {
+    if (success) {
+      if (isShowModalAddCart) {
+        setIsShowModalAddCart(false);
+      }
+      dispatch(setLayoutCartActions());
+      dispatch({ type: CART_ADD_RESET });
+    }
+  }, [success]);
 
   return (
     <>

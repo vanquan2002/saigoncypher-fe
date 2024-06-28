@@ -1,6 +1,8 @@
 import {
   CART_ADD_ITEM_REQUEST,
   CART_ADD_ITEM_SUCCESS,
+  CART_ADD_RESET,
+  CART_REMOVE_ITEM,
 } from "./../constants/CartConstants";
 
 export const cartReducer = (
@@ -86,6 +88,20 @@ export const cartReducer = (
         };
       }
     }
+    case CART_REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) =>
+            item.product !== action.payload.id ||
+            item.size !== action.payload.size
+        ),
+      };
+    case CART_ADD_RESET:
+      return {
+        ...state,
+        success: false,
+      };
     default:
       return state;
   }
