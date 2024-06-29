@@ -53,7 +53,7 @@ export default function DetailsProductScreen() {
 
       <button
         onClick={() => setIsShowModalAddCart(!isShowModalAddCart)}
-        className={`fixed z-0 left-0 bottom-0 flex items-center justify-center w-screen h-12 uppercase cursor-pointer text-sm bg-darkPrimary duration-300 ${
+        className={`fixed z-0 left-0 bottom-0 flex items-center justify-center w-screen h-12 uppercase cursor-pointer text-sm bg-darkPrimary duration-200 ${
           !showAddToCartButton || result ? "translate-y-14" : "translate-y-0"
         } text-whitePrimary active:text-opacity-15 md:hidden`}
       >

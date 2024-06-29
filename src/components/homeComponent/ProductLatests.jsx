@@ -3,6 +3,7 @@ import Loading from "../Loading";
 import Error from "../Error";
 import { useNavigate } from "react-router";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { Divider } from "antd";
 
 export default function ProductLatests() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function ProductLatests() {
   return (
     <>
       <div className="mt-20 md:mt-40">
-        <h1 className="text-darkPrimary text-[7vw] md:text-5xl font-semibold uppercase">
+        <h1 className="text-darkPrimary text-[7vw] md:text-5xl font-bold uppercase">
           Sản phẩm mới nhất
         </h1>
       </div>
@@ -39,7 +40,7 @@ export default function ProductLatests() {
                 />
                 <h5
                   onClick={() => navigate(`/products/${product._id}/detail`)}
-                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline active:text-opacity-60"
+                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 duration-200 hover:underline active:text-opacity-60"
                 >
                   {product.name}
                 </h5>
@@ -49,13 +50,17 @@ export default function ProductLatests() {
               </div>
             ))}
           </div>
-          <div className="flex justify-center w-full mt-8 md:mt-12">
-            <p
-              onClick={() => navigate("/products")}
-              className="text-xs md:text-base font-medium cursor-pointer text-darkPrimary text-opacity-70 hover:underline active:text-opacity-60"
-            >
-              [ Xem tất cả sản phẩm ]
-            </p>
+          <div className="mt-8 md:mt-12">
+            <Divider>
+              <div className="flex justify-center w-full">
+                <span
+                  onClick={() => navigate("/products")}
+                  className="font-montserrat text-base font-medium cursor-pointer text-darkPrimary text-opacity-70 duration-200 hover:underline active:text-opacity-40"
+                >
+                  [ Xem tất cả sản phẩm ]
+                </span>
+              </div>
+            </Divider>
           </div>
         </>
       )}

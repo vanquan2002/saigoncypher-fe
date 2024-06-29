@@ -9,15 +9,15 @@ export default function CartLayout({ result }) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const [cartHeight, setCartHeight] = useState(0);
-  const [totalHeight, setTotalHeight] = useState(0);
+  const [totalCartHeight, setTotalCartHeight] = useState(0);
   const [displayWidth, setDisplayWidth] = useState(0);
   const cartRef = useRef(null);
-  const containerRef = useRef(null);
   const dispatch = useDispatch();
   const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(0);
   const layoutResetCartHandle = () => {
     dispatch(setLayoutResetActions());
   };
+
   const handleScroll = () => {
     const scrollTop = cartRef.current.scrollTop;
     const scrollHeight = cartRef.current.scrollHeight;
@@ -26,22 +26,19 @@ export default function CartLayout({ result }) {
     const widthDisplay = Math.floor(scrollPercentage);
     setDisplayWidth(widthDisplay);
   };
-  const setCartHeightHandle = () => {
+  const updateCartDimensions = () => {
     if (cartRef.current) {
-      setCartHeight(cartRef.current.scrollHeight);
-      cartRef.current.addEventListener("scroll", handleScroll);
-    }
-  };
-  const setTotalHeightHandle = () => {
-    if (containerRef.current) {
-      setTotalHeight(containerRef.current.scrollHeight);
+      setCartHeight(cartRef.current.offsetHeight);
+      setTotalCartHeight(cartRef.current.scrollHeight);
     }
   };
 
   useEffect(() => {
+    updateCartDimensions();
     handleScroll();
-    setCartHeightHandle();
-    setTotalHeightHandle();
+    if (cartRef.current) {
+      cartRef.current.addEventListener("scroll", handleScroll);
+    }
     return () => {
       if (cartRef.current) {
         cartRef.current.removeEventListener("scroll", handleScroll);
@@ -51,7 +48,6 @@ export default function CartLayout({ result }) {
 
   return (
     <div
-      ref={containerRef}
       onClick={layoutResetCartHandle}
       className={`${
         result
@@ -78,7 +74,7 @@ export default function CartLayout({ result }) {
               className="cursor-pointer text-xl md:text-2xl"
             />
           </div>
-          {cartHeight > totalHeight && (
+          {cartHeight < totalCartHeight && (
             <div className="relative bg-darkPrimary bg-opacity-10 my-1 md:my-4 w-full h-[0.2rem]">
               <div
                 className="absolute top-0 left-0 bg-darkPrimary bg-opacity-50"
@@ -91,7 +87,10 @@ export default function CartLayout({ result }) {
             </div>
           )}
 
-          <div ref={cartRef} className="scrollbar-none overflow-y-auto">
+          <div
+            ref={cartRef}
+            className="scrollbar-none overflow-y-auto mb-24 md:mb-16"
+          >
             {cartItems.length === 0 ? (
               <div className="flex justify-center items-center my-14">
                 <h5 className="text-darkPrimary text-opacity-45 text-sm md:text-base">
@@ -104,17 +103,17 @@ export default function CartLayout({ result }) {
           </div>
 
           <div className="absolute bottom-0 left-0 w-full bg-whitePrimary">
-            <div className="flex items-center justify-between px-5 md:px-10 pt-5 md:pt-8">
+            <div className="flex items-center justify-between px-5 md:px-10">
               <p className="uppercase text-sm text-darkPrimary">Tổng tiền: </p>
               <p className="text-base font-medium text-darkPrimary">
                 {formatCurrency(parseInt(total))}
               </p>
             </div>
             <div className="flex items-center justify-between mt-4">
-              <button className="duration-300 hover:bg-darkPrimary hover:bg-opacity-15 border-t border-r border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black">
+              <button className="duration-200 active:bg-darkPrimary active:bg-opacity-15 border-t border-r border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black">
                 Xem giỏ hàng
               </button>
-              <button className="duration-300 hover:bg-darkPrimary hover:bg-opacity-15 border-t border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black">
+              <button className="duration-200 active:bg-darkPrimary active:bg-opacity-15 border-t border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black">
                 Thanh toán
               </button>
             </div>

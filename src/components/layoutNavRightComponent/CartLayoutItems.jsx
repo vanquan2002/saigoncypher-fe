@@ -21,7 +21,7 @@ export default function CartLayoutItems() {
   };
 
   return (
-    <div className="mb-24 md:mb-16">
+    <>
       {cartItems.map((item, i) => (
         <div
           className={`flex items-center gap-3 md:gap-5 ${
@@ -78,6 +78,6 @@ export default function CartLayoutItems() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }

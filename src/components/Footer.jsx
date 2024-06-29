@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <div className="">
               <span className="text-[10px] md:text-[11px]">Email: </span>
-              <span className="text-[10px] md:text-[11px] text-darkPrimary active:text-opacity-60 hover:underline cursor-pointer">
+              <span className="text-[10px] md:text-[11px] text-darkPrimary duration-200 active:text-opacity-60 hover:underline cursor-pointer">
                 SUPPORT@SAIGONCYPHER.COM
               </span>
             </div>
@@ -38,7 +38,7 @@ export default function Footer() {
             {usefulLinks.map((item, i) => (
               <span
                 key={i}
-                className="text-[11px] md:text-sm text-darkPrimary active:text-opacity-60 uppercase font-medium hover:underline cursor-pointer"
+                className="text-[11px] md:text-sm text-darkPrimary duration-200 active:text-opacity-60 uppercase font-medium hover:underline cursor-pointer"
               >
                 {item}
               </span>
@@ -48,7 +48,7 @@ export default function Footer() {
             {socialNetwork.map((item, i) => (
               <span
                 key={i}
-                className="text-[11px] md:text-sm text-darkPrimary active:text-opacity-60 mt-1 uppercase font-medium hover:underline cursor-pointer"
+                className="text-[11px] md:text-sm text-darkPrimary duration-200 active:text-opacity-60 mt-1 uppercase font-medium hover:underline cursor-pointer"
               >
                 {item}
               </span>

@@ -77,7 +77,7 @@ export default function InfoAddCartMdComponent({ id, product, loading }) {
                   key={i}
                   className={`cursor-pointer flex justify-center items-center ${
                     item.size === size ? "bg-darkPrimary" : "bg-whitePrimary"
-                  } border-[1px] border-black w-full h-9 duration-300`}
+                  } border-[1px] border-black w-full h-9 duration-200`}
                 >
                   <button
                     className={`uppercase ${
@@ -99,7 +99,7 @@ export default function InfoAddCartMdComponent({ id, product, loading }) {
               <button
                 className={`${
                   qty <= 1 && "opacity-30 pointer-events-none"
-                } duration-300 active:bg-darkPrimary active:bg-opacity-15 flex cursor-pointer w-12 h-9 md:w-10 md:h-9 lg:w-12 lg:h-9 justify-center items-center border-t border-l border-b border-black`}
+                } duration-200 active:bg-darkPrimary active:bg-opacity-15 flex cursor-pointer w-12 h-9 md:w-10 md:h-9 lg:w-12 lg:h-9 justify-center items-center border-t border-l border-b border-black`}
                 onClick={decrement}
               >
                 <AiOutlineMinus color="#1c1c1c" size="1rem" />
@@ -115,7 +115,7 @@ export default function InfoAddCartMdComponent({ id, product, loading }) {
               <button
                 className={`${
                   qty >= 50 && "opacity-30 pointer-events-none"
-                } duration-300 active:bg-darkPrimary active:bg-opacity-15 flex cursor-pointer w-12 h-9 md:w-10 md:h-9 lg:w-12 lg:h-9 justify-center items-center border-t border-r border-b border-black`}
+                } duration-200 active:bg-darkPrimary active:bg-opacity-15 flex cursor-pointer w-12 h-9 md:w-10 md:h-9 lg:w-12 lg:h-9 justify-center items-center border-t border-r border-b border-black`}
                 onClick={increment}
               >
                 <AiOutlinePlus color="#1c1c1c" size="1rem" />
@@ -130,7 +130,7 @@ export default function InfoAddCartMdComponent({ id, product, loading }) {
             size
               ? "bg-darkPrimary text-whitePrimary active:text-opacity-60"
               : "bg-whitePrimary text-black active:text-opacity-60"
-          } duration-300 font-normal cursor-pointer text-base flex justify-center items-center border border-black`}
+          } duration-200 font-normal cursor-pointer text-base flex justify-center items-center border border-black`}
         >
           <p className="uppercase">
             {loading ? "Đang thêm..." : "Thêm vào giỏ"}

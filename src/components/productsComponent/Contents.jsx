@@ -7,6 +7,7 @@ import { AiOutlineDoubleLeft } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router";
 import Pagination from "./Pagination";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { Divider } from "antd";
 
 export default function Contents() {
   const { keyword } = useParams();
@@ -23,13 +24,11 @@ export default function Contents() {
 
   return (
     <>
-      <div className="sticky top-14 md:top-20 ml-5 mt-20 md:ml-20 md:mt-32">
-        <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 backdrop-blur-sm rounded-full flex items-center justify-center">
-          <AiOutlineDoubleLeft
-            className="absolute text-darkPrimary active:text-opacity-60 duration-200 cursor-pointer text-3xl md:text-4xl lg:text-5xl"
-            onClick={() => navigate("/")}
-          />
-        </div>
+      <div className="sticky z-10 top-14 md:top-20 ml-5 mt-20 md:ml-20 md:mt-32 w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 backdrop-blur-sm rounded-full flex items-center justify-center">
+        <AiOutlineDoubleLeft
+          className="absolute text-darkPrimary active:text-opacity-60 duration-200 cursor-pointer text-3xl md:text-4xl lg:text-5xl"
+          onClick={() => navigate("/")}
+        />
       </div>
       <div className="px-5 pb-20 md:px-20 md:pb-40">
         <h1 className="text-center md:text-left mt-6 md:mt-12 text-[8vw] md:text-[5vw] uppercase font-bold">
@@ -56,7 +55,7 @@ export default function Contents() {
                 />
                 <h5
                   onClick={() => navigate(`/products/${product._id}/detail`)}
-                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 hover:underline active:text-opacity-60"
+                  className="flex cursor-pointer text-sm lg:text-base font-semibold text-darkPrimary line-clamp-2 mt-1 duration-200 hover:underline active:text-opacity-60"
                 >
                   {product.name}
                 </h5>
@@ -68,7 +67,11 @@ export default function Contents() {
           </div>
         )}
 
-        <Pagination page={page} pages={pages} keyword={keyword} />
+        <div className="mt-10 md:mt-14">
+          <Divider>
+            <Pagination page={page} pages={pages} keyword={keyword} />
+          </Divider>
+        </div>
       </div>
     </>
   );

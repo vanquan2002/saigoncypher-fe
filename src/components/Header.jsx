@@ -1,15 +1,18 @@
 import { RiSearchLine } from "react-icons/ri";
 import { HiOutlineUser } from "react-icons/hi";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setLayoutCartActions,
   setLayoutMenuActions,
   setLayoutSearchActions,
 } from "./../redux/actions/LayoutNavRightActions";
 import { useNavigate } from "react-router";
+import { Badge } from "antd";
 
 export default function Header() {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const layoutSearchHandler = () => {
@@ -38,11 +41,13 @@ export default function Header() {
           size="1.3rem"
           className="cursor-pointer text-darkPrimary active:text-opacity-60"
         />
-        <MdOutlineShoppingBag
-          onClick={layoutCartHandler}
-          size="1.3rem"
-          className="cursor-pointer text-darkPrimary active:text-opacity-60"
-        />
+        <Badge offset={[0, 3]} size="small" count={cartItems.length}>
+          <MdOutlineShoppingBag
+            onClick={layoutCartHandler}
+            size="1.3rem"
+            className="cursor-pointer text-darkPrimary active:text-opacity-60"
+          />
+        </Badge>
         <HiOutlineUser
           onClick={layoutMenuHandler}
           size="1.3rem"
