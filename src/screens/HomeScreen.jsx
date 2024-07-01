@@ -1,12 +1,13 @@
 import Header from "./../components/Header";
-import Banner from "./../components/homeComponent/Banner";
-import Slides from "./../components/homeComponent/Slides";
-import Contents from "./../components/homeComponent/Contents";
+import Banner from "./../components/homeComponents/Banner";
+import Slides from "./../components/homeComponents/Slides";
+import Contents from "./../components/homeComponents/Contents";
 import Footer from "./../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import MainLayout from "../components/layoutNavRightComponent/MainLayout";
+import MainLayout from "../components/layoutNavRightComponents/MainLayout";
 import { useEffect } from "react";
 import { productLatestsActions } from "./../redux/actions/ProductActions";
+import Introduce from "../components/homeComponents/Introduce";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export default function HomeScreen() {
       <Header />
       <Banner />
       <Slides />
+      <Introduce />
       <Contents />
       <Footer />
 

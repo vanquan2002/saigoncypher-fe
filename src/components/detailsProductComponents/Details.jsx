@@ -72,8 +72,8 @@ export default function Details({
         <div>
           <h5>{product.name}</h5>
         </div>
-        <p className="text-lg mt-2">{formatCurrency(product.price)}</p>
-        <div className="mt-6 lg:mt-12 grid grid-cols-4">
+        <p className="text-lg md:mt-1">{formatCurrency(product.price)}</p>
+        <div className="mt-4 lg:mt-10 grid grid-cols-4">
           <p className="text-darkPrimary uppercase col-span-1 text-sm">Màu:</p>
           <p className="text-darkPrimary col-span-3">{product.color}</p>
         </div>

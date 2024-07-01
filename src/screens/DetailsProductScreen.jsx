@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import MainLayout from "../components/layoutNavRightComponent/MainLayout";
+import MainLayout from "../components/layoutNavRightComponents/MainLayout";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Contents from "../components/detailsProductComponent/Contents";
+import Contents from "../components/detailsProductComponents/Contents";
 import { useEffect, useMemo, useRef, useState } from "react";
 import debounce from "lodash.debounce";
 

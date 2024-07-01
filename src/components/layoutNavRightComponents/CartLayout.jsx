@@ -4,6 +4,7 @@ import { MdClose } from "react-icons/md";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { useEffect, useRef, useState } from "react";
 import CartLayoutItems from "./CartLayoutItems";
+import { useNavigate } from "react-router";
 
 export default function CartLayout({ result }) {
   const cart = useSelector((state) => state.cart);
@@ -13,18 +14,28 @@ export default function CartLayout({ result }) {
   const [displayWidth, setDisplayWidth] = useState(0);
   const cartRef = useRef(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(0);
+
   const layoutResetCartHandle = () => {
     dispatch(setLayoutResetActions());
   };
-
   const handleScroll = () => {
-    const scrollTop = cartRef.current.scrollTop;
-    const scrollHeight = cartRef.current.scrollHeight;
-    const height = cartRef.current.clientHeight;
-    const scrollPercentage = ((scrollTop + height) / scrollHeight) * 100;
-    const widthDisplay = Math.floor(scrollPercentage);
-    setDisplayWidth(widthDisplay);
+    const cartElement = cartRef.current;
+    if (cartElement) {
+      const scrollTopCartElement = cartElement.scrollTop;
+      const scrollHeightCartElement = cartElement.scrollHeight;
+      const clientHeightCartElement = cartElement.clientHeight;
+      const scrollPercentage =
+        ((scrollTopCartElement + clientHeightCartElement) /
+          scrollHeightCartElement) *
+        100;
+      // const scrollPercentage =
+      //   (scrollTopCartElement /
+      //     (scrollHeightCartElement - clientHeightCartElement)) *
+      //   100;
+      setDisplayWidth(Math.min(scrollPercentage, 100));
+    }
   };
   const updateCartDimensions = () => {
     if (cartRef.current) {
@@ -32,16 +43,21 @@ export default function CartLayout({ result }) {
       setTotalCartHeight(cartRef.current.scrollHeight);
     }
   };
+  const navigateCartHandle = async () => {
+    layoutResetCartHandle();
+    navigate("/cart");
+  };
 
   useEffect(() => {
+    const cartElement = cartRef.current;
     updateCartDimensions();
     handleScroll();
-    if (cartRef.current) {
-      cartRef.current.addEventListener("scroll", handleScroll);
+    if (cartElement) {
+      cartElement.addEventListener("scroll", handleScroll);
     }
     return () => {
-      if (cartRef.current) {
-        cartRef.current.removeEventListener("scroll", handleScroll);
+      if (cartElement) {
+        cartElement.removeEventListener("scroll", handleScroll);
       }
     };
   }, [cartItems]);
@@ -98,7 +114,7 @@ export default function CartLayout({ result }) {
                 </h5>
               </div>
             ) : (
-              <CartLayoutItems />
+              <CartLayoutItems cartItems={cartItems} />
             )}
           </div>
 
@@ -110,7 +126,10 @@ export default function CartLayout({ result }) {
               </p>
             </div>
             <div className="flex items-center justify-between mt-4">
-              <button className="duration-200 active:bg-darkPrimary active:bg-opacity-15 border-t border-r border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black">
+              <button
+                onClick={navigateCartHandle}
+                className="duration-200 active:bg-darkPrimary active:bg-opacity-15 border-t border-r border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black"
+              >
                 Xem giỏ hàng
               </button>
               <button className="duration-200 active:bg-darkPrimary active:bg-opacity-15 border-t border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black">

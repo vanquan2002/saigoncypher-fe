@@ -33,7 +33,7 @@ export default function Slides() {
   }, []);
 
   return (
-    <div className="mt-5 md:mt-16">
+    <div className="hidden md:block mb-40">
       <swiper-container ref={swiperRef} init="false">
         <swiper-slide>
           <img

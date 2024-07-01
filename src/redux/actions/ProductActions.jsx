@@ -9,6 +9,9 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
+  PRODUCT_RELATED_REQUEST,
+  PRODUCT_RELATED_SUCCESS,
+  PRODUCT_RELATED_FAIL,
 } from "../constants/ProductConstants";
 
 export const productLatestsActions = () => async (dispatch) => {
@@ -70,6 +73,27 @@ export const productDetailsActions = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const relatedProductsActions = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: PRODUCT_RELATED_REQUEST,
+    });
+    const { data } = await axios.get(`/api/products/related/${id}`);
+    dispatch({
+      type: PRODUCT_RELATED_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_RELATED_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

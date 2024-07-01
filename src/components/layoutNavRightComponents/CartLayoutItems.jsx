@@ -1,12 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { removeItemCartActions } from "../../redux/actions/CartActions";
 import { MdClose } from "react-icons/md";
 import { setLayoutResetActions } from "../../redux/actions/LayoutNavRightActions";
 
-export default function CartLayoutItems() {
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+export default function CartLayoutItems({ cartItems }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const layoutResetCartHandle = () => {

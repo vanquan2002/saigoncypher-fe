@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductsScreen from "./screens/ProductsScreen";
 import DetailsProductScreen from "./screens/DetailsProductScreen";
+import CartScreen from "./screens/CartScreen";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           element={<ProductsScreen />}
         />
         <Route path="/products/:id/detail" element={<DetailsProductScreen />} />
+        <Route path="/cart" element={<CartScreen />} />
       </Routes>
     </BrowserRouter>
   );

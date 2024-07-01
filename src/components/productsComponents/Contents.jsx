@@ -30,7 +30,7 @@ export default function Contents() {
           onClick={() => navigate("/")}
         />
       </div>
-      <div className="px-5 pb-20 md:px-20 md:pb-40">
+      <div className="px-5 md:px-20 pb-20 md:pb-40">
         <h1 className="text-center md:text-left mt-6 md:mt-12 text-[8vw] md:text-[5vw] uppercase font-bold">
           Tất cả sản phẩm
         </h1>

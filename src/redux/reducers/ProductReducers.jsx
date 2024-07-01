@@ -8,6 +8,9 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
+  PRODUCT_RELATED_REQUEST,
+  PRODUCT_RELATED_SUCCESS,
+  PRODUCT_RELATED_FAIL,
 } from "../constants/ProductConstants";
 
 export const productLatestsReducers = (state = { products: [] }, action) => {
@@ -51,6 +54,22 @@ export const productDetailsReducers = (state = { product: {} }, action) => {
     case PRODUCT_DETAILS_SUCCESS:
       return { loading: false, product: action.payload };
     case PRODUCT_DETAILS_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const productsRelatedReducers = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case PRODUCT_RELATED_REQUEST:
+      return { loading: true, products: [] };
+    case PRODUCT_RELATED_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload,
+      };
+    case PRODUCT_RELATED_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

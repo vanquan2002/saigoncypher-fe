@@ -12,7 +12,7 @@ export default function ProductLatests() {
 
   return (
     <>
-      <div className="mt-20 md:mt-40">
+      <div className="">
         <h1 className="text-darkPrimary text-[7vw] md:text-5xl font-bold uppercase">
           Sản phẩm mới nhất
         </h1>
