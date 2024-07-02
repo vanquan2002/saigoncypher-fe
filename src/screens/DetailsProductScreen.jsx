@@ -13,7 +13,7 @@ export default function DetailsProductScreen() {
   const [showAddToCartButton, setShowAddToCartButton] = useState(true);
   const footerContainerRef = useRef(null);
 
-  const handleScroll = () => {
+  const scrollHandle = () => {
     if (footerContainerRef.current) {
       const windowHeight = window.innerHeight;
       const footerContainerHeight = footerContainerRef.current.scrollHeight;
@@ -24,19 +24,19 @@ export default function DetailsProductScreen() {
     }
   };
 
-  const debouncedHandleScroll = useMemo(
+  const debounceScroll = useMemo(
     () =>
       debounce(() => {
-        handleScroll();
-      }, 100),
+        scrollHandle();
+      }, 300),
     []
   );
 
   useEffect(() => {
-    handleScroll();
-    window.addEventListener("scroll", debouncedHandleScroll);
+    scrollHandle();
+    window.addEventListener("scroll", debounceScroll);
     return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll);
+      window.removeEventListener("scroll", debounceScroll);
     };
   }, []);
 

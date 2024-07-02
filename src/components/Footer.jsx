@@ -12,7 +12,7 @@ export default function Footer() {
   ];
 
   return (
-    <div className="p-5 mt-16 md:mt-0 md:p-20 min-h-1">
+    <div className="p-5 md:p-20 mt-16 md:mt-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-28">
         <div className="flex flex-col lg:items-start gap-16 md:gap-28">
           <div className="text-darkPrimary uppercase">
