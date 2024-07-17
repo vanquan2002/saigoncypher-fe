@@ -80,7 +80,7 @@ export default function CartLayout({ result }) {
         } w-[80vw] md:w-[60vw] lg:w-[40vw] h-screen bg-whitePrimary`}
       >
         {/* Content */}
-        <div className="relative flex flex-col gap-5 p-5 md:p-16 h-full">
+        <div className="relative flex flex-col gap-5 p-5 h-full">
           <div className="flex justify-between w-full items-center">
             <p className="text-darkPrimary font-medium uppercase text-sm md:text-base">
               Cart
@@ -91,7 +91,7 @@ export default function CartLayout({ result }) {
             />
           </div>
           {cartHeight < totalCartHeight && (
-            <div className="relative bg-darkPrimary bg-opacity-10 my-1 md:my-4 w-full h-[0.2rem]">
+            <div className="relative bg-darkPrimary bg-opacity-10 mb-1 w-full h-[0.2rem]">
               <div
                 className="absolute top-0 left-0 bg-darkPrimary bg-opacity-50"
                 style={{
@@ -103,10 +103,7 @@ export default function CartLayout({ result }) {
             </div>
           )}
 
-          <div
-            ref={cartRef}
-            className="scrollbar-none overflow-y-auto mb-24 md:mb-16"
-          >
+          <div ref={cartRef} className="scrollbar-none overflow-y-auto mb-24">
             {cartItems.length === 0 ? (
               <div className="flex justify-center items-center my-14">
                 <h5 className="text-darkPrimary text-opacity-45 text-sm md:text-base">
@@ -119,13 +116,13 @@ export default function CartLayout({ result }) {
           </div>
 
           <div className="absolute bottom-0 left-0 w-full bg-whitePrimary">
-            <div className="flex items-center justify-between px-5 md:px-10">
+            <div className="flex items-center justify-between px-5 py-4">
               <p className="uppercase text-sm text-darkPrimary">Tổng tiền: </p>
               <p className="text-base font-medium text-darkPrimary">
                 {formatCurrency(parseInt(total))}
               </p>
             </div>
-            <div className="flex items-center justify-between mt-4">
+            <div className="flex items-center justify-between">
               <button
                 onClick={navigateCartHandle}
                 className="duration-200 active:bg-darkPrimary active:bg-opacity-15 border-t border-r border-black w-full px-3 md:px-6 py-4 text-sm uppercase text-black"

@@ -39,7 +39,7 @@ export default function CartLayoutItems({ cartItems }) {
               <div className="">
                 <h4
                   onClick={() => navigateProductHandle(item.product)}
-                  className="line-clamp-1 md:line-clamp-2 text-darkPrimary font-medium text-sm cursor-pointer"
+                  className="duration-200 active:text-opacity-60 hover:underline line-clamp-1 md:line-clamp-2 text-darkPrimary font-medium text-sm cursor-pointer"
                 >
                   {item.name}
                 </h4>

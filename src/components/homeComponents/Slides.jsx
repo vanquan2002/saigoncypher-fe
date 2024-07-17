@@ -32,7 +32,7 @@ export default function Slides() {
     () =>
       debounce(() => {
         resizeHandle();
-      }, 300),
+      }, 200),
     []
   );
 
@@ -76,7 +76,7 @@ export default function Slides() {
                 <img
                   src={item}
                   alt={item}
-                  className={`${changeSliders && "h-screen object-cover"}`}
+                  // className={`${changeSliders && "h-screen object-cover"}`}
                 />
               </swiper-slide>
             ))

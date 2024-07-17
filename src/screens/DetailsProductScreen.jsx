@@ -14,9 +14,10 @@ export default function DetailsProductScreen() {
   const footerContainerRef = useRef(null);
 
   const scrollHandle = () => {
-    if (footerContainerRef.current) {
+    const footerContainer = footerContainerRef.current;
+    if (footerContainer) {
       const windowHeight = window.innerHeight;
-      const footerContainerHeight = footerContainerRef.current.scrollHeight;
+      const footerContainerHeight = footerContainer.scrollHeight;
       const scrollPosition = window.scrollY;
       const scrolledToBottom =
         Math.ceil(scrollPosition + windowHeight) >= footerContainerHeight;
@@ -28,7 +29,7 @@ export default function DetailsProductScreen() {
     () =>
       debounce(() => {
         scrollHandle();
-      }, 300),
+      }, 200),
     []
   );
 
@@ -47,9 +48,7 @@ export default function DetailsProductScreen() {
         isShowModalAddCart={isShowModalAddCart}
         setIsShowModalAddCart={setIsShowModalAddCart}
       />
-      <div>
-        <Footer />
-      </div>
+      <Footer />
 
       <button
         onClick={() => setIsShowModalAddCart(!isShowModalAddCart)}
